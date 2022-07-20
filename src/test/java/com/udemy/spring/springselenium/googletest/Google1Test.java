@@ -22,6 +22,11 @@ public class Google1Test extends SpringBaseTestNGTest {
         this.googlePage.goTo();
         Assert.assertTrue(this.googlePage.isAt());
         this.googlePage.getSearchComponent().search("spring boot");
+
+        int count = this.googlePage.getSearchResult().getCount();
+
+        System.out.println(count);
+
         Assert.assertTrue(this.googlePage.getSearchResult().isAt());
         Assert.assertTrue(this.googlePage.getSearchResult().getCount() > 2);
         this.screenshotService.takeScreenShot();

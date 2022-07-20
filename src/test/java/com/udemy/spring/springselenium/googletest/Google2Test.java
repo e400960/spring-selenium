@@ -23,7 +23,10 @@ public class Google2Test extends SpringBaseTestNGTest {
         Assert.assertTrue(this.googlePage.isAt());
         this.googlePage.getSearchComponent().search("selenium");
         Assert.assertTrue(this.googlePage.getSearchResult().isAt());
-        Assert.assertTrue(this.googlePage.getSearchResult().getCount() > 25);
+        int count = this.googlePage.getSearchResult().getCount();
+        System.out.println(count);
+
+        Assert.assertTrue(this.googlePage.getSearchResult().getCount() > 12);
         this.screenshotService.takeScreenShot();
         this.googlePage.close();
     }
